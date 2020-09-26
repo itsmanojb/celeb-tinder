@@ -1,0 +1,56 @@
+.swipeButtons {
+  display: flex;
+  z-index: -1;
+  /* position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px; */
+}
+
+.swipeButtons .container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.swipeButtons .MuiIconButton-root {
+  background-color: #fff;
+  box-shadow: 0 10px 42px 0 rgba(0, 0, 0, 0.15) !important;
+  width: 50px;
+  height: 50px;
+  transition: transform .2s ease-in;
+}
+
+.swipeButtons .MuiIconButton-root:hover {
+  transform: scale(1.1);
+  background-color: #fff;
+}
+
+.btn:nth-of-type(2),
+.btn:nth-of-type(4) {
+  width: 56px;
+  height: 56px;
+}
+
+.btn__undo {
+  color: #f5b748 !important;
+}
+
+.btn__no {
+  color: #ec5e6f !important;
+}
+
+.btn__yes {
+  color: #76e2b3 !important;
+}
+
+.btn__star {
+  color: #62b4f9 !important;
+}
+
+.btn__boost {
+  color: #915dd1 !important;
+}
