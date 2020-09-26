@@ -18,8 +18,22 @@ const MyProfile = () => {
     setAlias(prof ? JSON.parse(prof) : null);
   }, []);
 
+  function gotoSettings() {
+    if (alias) {
+      history.push('/settings');
+    }
+  }
+
+  function editProfile() {
+    if (alias) {
+      history.push('/edit-info');
+    }
+  }
+
   function setupAlias() {
-    history.push('/alias');
+    if (!alias) {
+      history.push('/alias');
+    }
   }
 
   return (
@@ -40,7 +54,7 @@ const MyProfile = () => {
         </div>
         <div className={style.profile__btns}>
           <div className={style.btn}>
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" onClick={gotoSettings}>
               <SettingsIcon />
             </IconButton>
             <span>Settings</span>
@@ -52,7 +66,7 @@ const MyProfile = () => {
             <span>Add Photo</span>
           </div>
           <div className={style.btn}>
-            <IconButton aria-label="edit details">
+            <IconButton aria-label="edit details" onClick={editProfile}>
               <EditIcon />
             </IconButton>
             <span>Edit Info</span>

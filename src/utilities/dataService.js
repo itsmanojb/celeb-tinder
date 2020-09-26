@@ -8,17 +8,9 @@ function search(query, page = 1) {
   });
 }
 
-function getTopCelebrities(timing = 'day') {
-  // timing: 'week' | 'day'
+function getCelebrityPhotos(id) {
   return request({
-    url: getAuthorizedURL(`trending/person/${timing}`),
-    method: 'GET',
-  });
-}
-
-function getPopularCelebrities(page = 1) {
-  return request({
-    url: getAuthorizedURL(`person/popular`, `page=${page}`),
+    url: getAuthorizedURL(`person/${id}/images`),
     method: 'GET',
   });
 }
@@ -30,7 +22,7 @@ function getCelebrityDetails(id) {
   });
 }
 
-function getCelebPhotoUrl(path, size, secure = true) {
+function getCelebPhotoUrl(path, size = 's', secure = true) {
   if (!path) return;
   let imgSize = '';
   const baseUrl = secure
@@ -53,12 +45,35 @@ function getCelebPhotoUrl(path, size, secure = true) {
   return `${baseUrl}${imgSize}${path}`;
 }
 
+function getCelebPofilesUrl(path, size = 'm', secure = true) {
+  if (!path) return;
+  let imgSize = '';
+  const baseUrl = secure
+    ? Config.images.secure_base_url
+    : Config.images.base_url;
+  switch (size) {
+    case 's':
+      imgSize = Config.images.still_sizes[0];
+      break;
+    case 'm':
+      imgSize = Config.images.still_sizes[1];
+      break;
+    case 'l':
+      imgSize = Config.images.still_sizes[2];
+      break;
+    default:
+      imgSize = 'original';
+      break;
+  }
+  return `${baseUrl}${imgSize}${path}`;
+}
+
 const DataService = {
   search,
-  getTopCelebrities,
-  getPopularCelebrities,
-  getCelebPhotoUrl,
   getCelebrityDetails,
+  getCelebPhotoUrl,
+  getCelebrityPhotos,
+  getCelebPofilesUrl,
 };
 
 export default DataService;

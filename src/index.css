@@ -5,6 +5,17 @@
   --theme-color-mixed: #ff5864;
   --theme-color-red: #ff655b;
   --theme-gradient: linear-gradient(90deg, #fe3c72, #ff5864, #ff655b);
+
+  /* toggle */
+  --button-width: 60px;
+  --button-height: 30px;
+  --toggle-diameter: 30px;
+  --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+  --toggle-shadow-offset: 1px;
+  --toggle-wider: 333px;
+  --color-grey: #E9E9E9;
+  --color-dark-grey: #39393D;
+  --color-green: var(--theme-color-pink);
 }
 
 body {
@@ -65,4 +76,69 @@ body {
   pointer-events: none;
   padding: 20px;
   text-align: center;
+}
+
+.loading {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: #666; */
+  background: -webkit-linear-gradient(var(--theme-color-pink),
+      var(--theme-color-mixed),
+      var(--theme-color-red));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ios-toggle {
+  padding: 8px 0;
+}
+
+.ios-toggle span {
+  display: inline-block;
+  width: var(--button-width);
+  height: var(--button-height);
+  background-color: var(--color-grey);
+  border-radius: calc(var(--button-height) / 2);
+  position: relative;
+  transition: .2s all ease-in-out;
+  cursor: pointer;
+}
+
+.ios-toggle span::after {
+  content: '';
+  display: inline-block;
+  width: var(--toggle-diameter);
+  height: var(--toggle-diameter);
+  background-color: #fff;
+  border-radius: calc(var(--toggle-diameter) / 2);
+  position: absolute;
+  top: var(--button-toggle-offset);
+  transform: translateX(var(--button-toggle-offset));
+  box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, .10);
+  transition: .2s all ease-in-out;
+}
+
+.ios-toggle input[type="checkbox"]:checked+span {
+  background-color: var(--color-green);
+}
+
+.ios-toggle input[type="checkbox"]:checked+span::after {
+  transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+  box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, .10);
+}
+
+.ios-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.ios-toggle input[type="checkbox"]:active+span::after {
+  width: var(--toggle-wider);
+}
+
+.ios-toggle input[type="checkbox"]:checked:active+span::after {
+  transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
 }

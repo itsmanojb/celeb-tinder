@@ -33,7 +33,12 @@
   z-index: 0;
 }
 
-.chat-header > span {
+.chat-header.has-title>span {
+  margin: auto;
+  padding-right: 48px;
+}
+
+.chat-header>span {
   color: #555;
 }
 
