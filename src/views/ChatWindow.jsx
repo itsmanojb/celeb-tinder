@@ -5,13 +5,11 @@ import ComposeMessage from '../components/Messages/ComposeMessage';
 
 const ChatWindow = () => {
   return (
-    <>
-      <div className="App has-msgbox">
-        <ChatHeader />
-        <ChatMessages />
-        <ComposeMessage />
-      </div>
-    </>
+    <div className="App has-msgbox">
+      <ChatHeader />
+      <ChatMessages />
+      <ComposeMessage />
+    </div>
   );
 };
 

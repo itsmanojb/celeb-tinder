@@ -27,14 +27,19 @@
   align-items: center;
   justify-content: space-between;
   z-index: 100;
-  border-bottom: 1px solid #f9f9f9;
+  border-bottom: 1px solid #eee;
   padding: 0.5rem;
   background-color: #fff;
   z-index: 0;
 }
 
-.chat-header>span {
+.chat-header > span {
   color: #555;
+}
+
+.chat-header a.back button {
+  padding-left: 16px;
+  padding-right: 8px;
 }
 
 .chat-header a.back button,

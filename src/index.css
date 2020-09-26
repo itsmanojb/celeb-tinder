@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&display=swap');
 
 :root {
-  --theme-color-pink: #FE3C72;
-  --theme-color-mixed: #FF5864;
-  --theme-color-red: #FF655B;
-  --theme-gradient: linear-gradient(90deg, #FE3C72, #FF5864, #FF655B);
+  --theme-color-pink: #fe3c72;
+  --theme-color-mixed: #ff5864;
+  --theme-color-red: #ff655b;
+  --theme-gradient: linear-gradient(90deg, #fe3c72, #ff5864, #ff655b);
 }
 
 body {
@@ -38,10 +38,31 @@ body {
   user-select: none;
 }
 
+.App.search {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: 56px 64px 1fr;
+  user-select: none;
+}
+
 .App.scroll {
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .App.has-msgbox {
   grid-template-rows: 56px 1fr 64px;
+}
+
+.info-text {
+  background: #fff;
+  color: #aaa;
+  user-select: none;
+  pointer-events: none;
+  padding: 20px;
+  text-align: center;
 }

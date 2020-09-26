@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import style from './Messages.module.css';
 
 const AllMessages = () => {
-  let history = useHistory();
+  const history = useHistory();
   const threads = [
     {
       postId: 1,
