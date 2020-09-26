@@ -1,0 +1,129 @@
+.page {
+  background-color: #F1F6F9;
+  min-height: calc(100vh - 72px);
+}
+
+.top {
+  padding: 0.5rem 2rem 2.5rem;
+  display: grid;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0 0 50vw 50vw /12% 12%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  /* clip-path: circle(100.0% at 50% -2%); */
+}
+
+.avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px auto 20px;
+  background: #ddd;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.name {
+  padding: 0 10px;
+  text-align: center;
+}
+
+.name h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.name p {
+  margin: 8px 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.profile__btns {
+  display: flex;
+}
+
+.profile__btns {
+  display: flex;
+  margin-top: -30px;
+}
+
+.btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn button {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 15px auto;
+}
+
+.btn button.special_btn {
+  background-image: var(--theme-gradient);
+  color: #fff;
+}
+
+.btn>span {
+  font-size: 12px;
+  color: #888;
+}
+
+.btn:nth-of-type(2) {
+  margin-top: 50px;
+}
+
+.bottom {
+  padding: 1rem 1rem 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #F1F6F9;
+}
+
+.bottom h3 {
+  /* color: var(--theme-color-red); */
+  background: -webkit-linear-gradient(var(--theme-color-pink), var(--theme-color-mixed), var(--theme-color-red));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 20px 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.bottom p {
+  color: #777;
+  padding: 0 20px;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.bottom button {
+  margin: 20px 0;
+  border: none;
+  background-image: var(--theme-gradient);
+  color: #fff;
+  padding: 15px 30px;
+  line-height: 1;
+  font-size: 16px;
+  border-radius: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
