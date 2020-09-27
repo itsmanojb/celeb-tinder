@@ -20,6 +20,7 @@ const CelebItem = ({ data }) => {
     const top = items.filter((i) => i.media_type === 'movie');
     return top[0].title || '';
   };
+
   return (
     <div className={style.celeb_item} onClick={setAlias}>
       <div className={style.celeb_dp}>

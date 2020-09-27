@@ -22,6 +22,13 @@ function getCelebrityDetails(id) {
   });
 }
 
+function getPopularCelebrities(page = 1) {
+  return request({
+    url: getAuthorizedURL(`person/popular`, `page=${page}`),
+    method: 'GET',
+  });
+}
+
 function getCelebPhotoUrl(path, size = 'l', secure = true) {
   if (!path) return;
   let imgSize = '';
@@ -74,6 +81,7 @@ const DataService = {
   getCelebPhotoUrl,
   getCelebrityPhotos,
   getCelebPofilesUrl,
+  getPopularCelebrities,
 };
 
 export default DataService;

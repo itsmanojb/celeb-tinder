@@ -1,0 +1,115 @@
+.loader,
+.loader__figure {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.loader {
+  --w: 4rem;
+  overflow: visible;
+  padding-top: var(--w);
+  height: 0;
+  width: var(--w);
+}
+
+.loader__figure {
+  height: 0;
+  width: 0;
+  box-sizing: border-box;
+  border: 0 solid #FE665C;
+  border-radius: 50%;
+  -webkit-animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  -moz-animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+
+@-webkit-keyframes loader-figure {
+  0% {
+    height: 0;
+    width: 0;
+    background-color: #FE665C;
+  }
+
+  29% {
+    background-color: #FE665C;
+  }
+
+  30% {
+    height: var(--w);
+    width: var(--w);
+    background-color: transparent;
+    border-width: calc(var(--w) / 2);
+    opacity: 1;
+  }
+
+  100% {
+    height: var(--w);
+    width: var(--w);
+    border-width: 0;
+    opacity: 0;
+    background-color: transparent;
+  }
+}
+
+@-moz-keyframes loader-figure {
+  0% {
+    height: 0;
+    width: 0;
+    background-color: #FE665C;
+  }
+
+  29% {
+    background-color: #FE665C;
+  }
+
+  30% {
+    height: var(--w);
+    width: var(--w);
+    background-color: transparent;
+    border-width: calc(var(--w) / 2);
+    opacity: 1;
+  }
+
+  100% {
+    height: var(--w);
+    width: var(--w);
+    border-width: 0;
+    opacity: 0;
+    background-color: transparent;
+  }
+}
+
+@keyframes loader-figure {
+  0% {
+    height: 0;
+    width: 0;
+    background-color: #FE665C;
+  }
+
+  29% {
+    background-color: #FE665C;
+  }
+
+  30% {
+    height: var(--w);
+    width: var(--w);
+    background-color: transparent;
+    border-width: calc(var(--w) / 2);
+    opacity: 1;
+  }
+
+  100% {
+    height: var(--w);
+    width: var(--w);
+    border-width: 0;
+    opacity: 0;
+    background-color: transparent;
+  }
+}
