@@ -8,6 +8,13 @@ const Config = {
     profile_sizes: ['w45', 'w185', 'h632', 'original'],
     still_sizes: ['w92', 'w185', 'w300', 'original'],
   },
+  default_settings: {
+    global: false,
+    maxDistance: 10,
+    lookingFor: 0,
+    ageRange: [18, 50],
+    lang: 'English',
+  },
 };
 
 export default Config;

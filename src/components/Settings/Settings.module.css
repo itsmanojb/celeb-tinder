@@ -2,6 +2,22 @@
   background-color: #f6f7f8;
 }
 
+
+.inactive {
+  position: relative;
+}
+
+.edit_page.inactive::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, .68);
+  z-index: 10;
+}
+
 .dp_gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -56,6 +72,20 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.item_value select {
+  border: none;
+  width: 80px;
+  padding: 0;
+  color: inherit;
+  font-size: 14px;
+  background-color: #fff;
+  -webkit-appearance: none;
+}
+
+.item_value select:focus {
+  outline: none;
 }
 
 .list_item:last-of-type {
