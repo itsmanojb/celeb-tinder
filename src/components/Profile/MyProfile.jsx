@@ -19,9 +19,9 @@ const MyProfile = () => {
   }, []);
 
   function gotoSettings() {
-    if (alias) {
-      history.push('/settings');
-    }
+    history.push('/settings');
+    // if (alias) {
+    // }
   }
 
   function editProfile() {

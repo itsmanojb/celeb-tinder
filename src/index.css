@@ -5,6 +5,7 @@
   --theme-color-mixed: #ff5864;
   --theme-color-red: #ff655b;
   --theme-gradient: linear-gradient(90deg, #fe3c72, #ff5864, #ff655b);
+  --theme-gradient-vertical: linear-gradient(180deg, #fe3c72, #ff655b, #ff815b);
 
   /* toggle */
   --button-width: 60px;
@@ -18,12 +19,78 @@
   --color-green: var(--theme-color-pink);
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
   font-family: 'Epilogue', sans-serif;
   font-weight: 400;
+}
+
+.Login {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  align-items: center;
+  user-select: none;
+  overflow: hidden;
+  background-image: var(--theme-gradient-vertical);
+  color: #fff;
+  padding: 0 20px;
+  justify-content: stretch;
+  height: 100%;
+}
+
+.Login .top {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.Login .logo {
+  height: 40px;
+  font-size: 50px;
+  font-weight: 600;
+  display: flex;
+}
+
+.Login .logo .MuiSvgIcon-root {
+  width: 45px;
+  height: 45px;
+}
+
+.login-btn {
+  display: block;
+  background-color: #fff;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  user-select: none;
+  width: 90%;
+  max-width: 350px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #555;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.login-btn.outlined {
+  background-color: transparent;
+  color: #fff;
+}
+
+.login-btn:focus {
+  outline: none;
 }
 
 .App {

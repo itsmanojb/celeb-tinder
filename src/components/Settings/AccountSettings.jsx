@@ -3,6 +3,7 @@ import Slider from '@material-ui/core/Slider';
 import { withStyles } from '@material-ui/core/styles';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import GradeIcon from '@material-ui/icons/Grade';
+import { auth } from '../../utilities/firebase';
 import style from './Settings.module.css';
 
 const iOSBoxShadow =
@@ -65,6 +66,14 @@ const AccountSettings = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  function signOut() {
+    const confirm = window.confirm('Are you sure?');
+    if (confirm) {
+      localStorage.removeItem('CTIND_USER');
+      auth.signOut();
+    }
+  }
 
   return (
     <div className={style.edit_page}>
@@ -213,7 +222,7 @@ const AccountSettings = () => {
         <div>Privacy Policy</div>
         <div className={style.item_value}></div>
       </div>
-      <div className={style.list_item_imp}>
+      <div className={`${style.list_item_imp} clickable`} onClick={signOut}>
         <div>Log Out</div>
       </div>
       <div className={style.app_info}>
