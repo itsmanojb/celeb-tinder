@@ -89,7 +89,7 @@ const MyProfile = () => {
               You've already picked your alias, which you cannot change. However
               you can change photo or edit your profile.
             </p>
-            <button disabled>Pick Alias</button>
+            <button disabled>Alias Picked</button>
           </>
         )}
       </div>

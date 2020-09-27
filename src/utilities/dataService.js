@@ -22,7 +22,7 @@ function getCelebrityDetails(id) {
   });
 }
 
-function getCelebPhotoUrl(path, size = 's', secure = true) {
+function getCelebPhotoUrl(path, size = 'l', secure = true) {
   if (!path) return;
   let imgSize = '';
   const baseUrl = secure
@@ -45,7 +45,7 @@ function getCelebPhotoUrl(path, size = 's', secure = true) {
   return `${baseUrl}${imgSize}${path}`;
 }
 
-function getCelebPofilesUrl(path, size = 'm', secure = true) {
+function getCelebPofilesUrl(path, size = 'l', secure = true) {
   if (!path) return;
   let imgSize = '';
   const baseUrl = secure

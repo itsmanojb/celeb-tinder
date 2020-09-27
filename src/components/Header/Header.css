@@ -38,6 +38,11 @@
   padding-right: 48px;
 }
 
+.chat-header.has-action>span {
+  margin: auto;
+  padding-left: 64px;
+}
+
 .chat-header>span {
   color: #555;
 }
@@ -50,4 +55,8 @@
 .chat-header a.back button,
 .chat-header button {
   color: red;
+}
+
+.done-btn {
+  font-weight: 500 !important;
 }

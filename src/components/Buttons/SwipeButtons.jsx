@@ -3,7 +3,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ReplayIcon from '@material-ui/icons/Replay';
 import CloseIcon from '@material-ui/icons/Close';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import StarIcon from '@material-ui/icons/Star';
+import GradeIcon from '@material-ui/icons/Grade';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import './Swipe-buttons.css';
 
@@ -18,7 +18,7 @@ const SwipeButtons = () => {
           <CloseIcon />
         </IconButton>
         <IconButton className="btn btn__star">
-          <StarIcon />
+          <GradeIcon />
         </IconButton>
         <IconButton className="btn btn__yes">
           <FavoriteIcon />

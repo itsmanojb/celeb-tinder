@@ -93,8 +93,9 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.ios-toggle {
-  padding: 8px 0;
+.ios-toggle.disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .ios-toggle span {
