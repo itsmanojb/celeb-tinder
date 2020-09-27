@@ -11,9 +11,9 @@ const TinderCards = () => {
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(false);
 
-  const user = localStorage.getItem('C_TIND_ALIAS');
-  const me = user ? JSON.parse(user).id : null;
-  const genderCoice = localStorage.getItem('C_TIND_LOOKUP_GROUP') || null;
+  const me = JSON.parse(localStorage.getItem('C_TIND_ALIAS')).id;
+  const genderCoice = JSON.parse(localStorage.getItem('C_TIND_USER')).settings
+    .lookingFor;
 
   useEffect(() => {
     DataService.getPopularCelebrities(page)
@@ -97,7 +97,7 @@ const TinderCards = () => {
             <div className="loader__figure"></div>
           </div>
         </div>
-      ) : people.length === 0 ? (
+      ) : people.length > 0 ? (
         people.map((person, i) => (
           <TinderCard
             className={style.swipe}

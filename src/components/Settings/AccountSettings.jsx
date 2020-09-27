@@ -68,7 +68,7 @@ const IOSSlider = withStyles({
 
 const AccountSettings = () => {
   const history = useHistory();
-  const [user] = useLocalStorage('CTIND_USER');
+  const [user] = useLocalStorage('C_TIND_USER', null);
 
   const settings = user.settings ? user.settings : Config.default_settings;
   const [maxDistance, setMaxDistance] = useState(settings.maxDistance);
@@ -89,7 +89,7 @@ const AccountSettings = () => {
   function signOut() {
     const confirm = window.confirm('Are you sure?');
     if (confirm) {
-      localStorage.removeItem('CTIND_USER');
+      localStorage.removeItem('C_TIND_USER');
       auth.signOut();
     }
   }
@@ -107,7 +107,7 @@ const AccountSettings = () => {
       usersRef.get().then(async (doc) => {
         let data = doc.data();
         localStorage.setItem(
-          'CTIND_USER',
+          'C_TIND_USER',
           JSON.stringify({ ...data, settings: newSettings })
         );
         await usersRef.set({ settings: newSettings }, { merge: true });

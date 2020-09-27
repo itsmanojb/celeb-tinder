@@ -24,7 +24,7 @@ function updateUser(user) {
     } else {
       data = { uid, email, displayName };
     }
-    localStorage.setItem('CTIND_USER', JSON.stringify(data));
+    localStorage.setItem('C_TIND_USER', JSON.stringify(data));
     await usersRef.set(data, { merge: true });
   });
 

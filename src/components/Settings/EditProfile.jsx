@@ -72,7 +72,7 @@ const EditProfile = () => {
   }, []);
 
   const getGender = (no) => {
-    return no === 2 ? 'Man' : no === 1 ? 'Woman' : '-';
+    return no === 2 ? 'Male' : no === 1 ? 'Female' : '-';
   };
 
   return (

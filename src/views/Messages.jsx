@@ -5,7 +5,7 @@ import AllMessages from '../components/Messages/AllMessages';
 import useLocalStorage from '../utilities/useLSHook';
 
 const Messages = () => {
-  const [user, setUser] = useLocalStorage('CTIND_USER', null);
+  const [user] = useLocalStorage('C_TIND_USER', null);
 
   return user ? (
     <div className="App no-footer scroll">

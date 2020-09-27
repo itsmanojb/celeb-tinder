@@ -5,7 +5,7 @@ import EditProfile from '../components/Settings/EditProfile';
 import useLocalStorage from '../utilities/useLSHook';
 
 const EditInfo = () => {
-  const [user, setUser] = useLocalStorage('CTIND_USER', null);
+  const [user] = useLocalStorage('C_TIND_USER', null);
 
   return user ? (
     <div className="App scroll no-footer">
