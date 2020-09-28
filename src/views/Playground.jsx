@@ -6,10 +6,9 @@ import useLocalStorage from '../utilities/useLSHook';
 import { Redirect } from 'react-router-dom';
 
 const Playground = () => {
-  const [user] = useLocalStorage('C_TIND_USER', null);
   const [alias] = useLocalStorage('C_TIND_ALIAS', null);
 
-  return user && alias ? (
+  return alias ? (
     <div className="App">
       <Header />
       <TinderCards />

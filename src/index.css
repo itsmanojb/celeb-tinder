@@ -82,6 +82,8 @@ body {
   color: #555;
   cursor: pointer;
   margin: 10px auto;
+  text-decoration: none;
+  text-align: center;
 }
 
 .login-btn.outlined {

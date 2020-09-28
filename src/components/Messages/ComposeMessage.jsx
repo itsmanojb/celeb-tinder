@@ -7,7 +7,7 @@ const ComposeMessage = () => {
   return (
     <div className={style.msgbox}>
       <div className={style.input}>
-        <input type="text" placeholder="Reply turned off!" />
+        <input type="text" placeholder="Reply has been turned off!" />
       </div>
       <div className={style.send_btn}>
         <IconButton aria-label="send message">

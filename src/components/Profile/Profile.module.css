@@ -154,7 +154,8 @@
 .searchbox input {
   padding: 12px 24px;
   border: 1px solid #eee;
-  width: calc(100% - 48px);
+  /* width: calc(100% - 48px); */
+  width: 100%;
   background-color: #fff;
   border-radius: 30px;
   font-family: inherit;

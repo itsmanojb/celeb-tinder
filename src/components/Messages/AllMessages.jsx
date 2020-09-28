@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import style from './Messages.module.css';
+import avatar from './user.png';
 
 const AllMessages = () => {
   const history = useHistory();
@@ -9,8 +10,7 @@ const AllMessages = () => {
       id: 1,
       name: 'Manoj B',
       date: 'Today',
-      body: 'Welcome to Celebrity Tinder. A clone app created just for fun.',
-      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
+      body: 'Welcome to Celebrity Tinder. Tap here to Say Hello!',
     },
   ];
 
@@ -29,7 +29,7 @@ const AllMessages = () => {
             onClick={gotoChatWindow}
           >
             <div className={style.avatar}>
-              <img src={msg.img} alt="" />
+              <img src={avatar} alt="" />
             </div>
             <div className={style.msg_glance}>
               <h4>{msg.name}</h4>

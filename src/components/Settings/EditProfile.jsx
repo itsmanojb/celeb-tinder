@@ -12,7 +12,7 @@ const PhotoGallery = ({ items }) => {
           <img src={DataService.getCelebPofilesUrl(img)} alt=".." />
         </div>
       ))}
-      {blank &&
+      {blank.length > 0 &&
         [...Array(blank)].map((item, i) => (
           <div className={style.blank} key={i} />
         ))}

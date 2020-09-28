@@ -14,7 +14,7 @@ const Header = () => {
           <PersonIcon />
         </IconButton>
       </NavLink>
-      <NavLink to="/" exact activeClassName="active">
+      <NavLink to="/swipe" activeClassName="active">
         <img
           src="https://1000logos.net/wp-content/uploads/2018/07/tinder-logo.png"
           alt="Logo"

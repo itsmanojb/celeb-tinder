@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import TinderCard from 'react-tinder-card';
+import Config from '../../utilities/config';
 import DataService from '../../utilities/dataService';
 import style from './Card.module.css';
 import './loader.css';
@@ -12,8 +13,9 @@ const TinderCards = () => {
   const [hasMore, setHasMore] = useState(false);
 
   const me = JSON.parse(localStorage.getItem('C_TIND_ALIAS')).id;
-  const genderCoice = JSON.parse(localStorage.getItem('C_TIND_USER')).settings
-    .lookingFor;
+  const genderCoice = localStorage.getItem('C_TIND_SETTINGS')
+    ? JSON.parse(localStorage.getItem('C_TIND_SETTINGS')).lookingFor
+    : Config.default_settings.lookingFor;
 
   useEffect(() => {
     DataService.getPopularCelebrities(page)

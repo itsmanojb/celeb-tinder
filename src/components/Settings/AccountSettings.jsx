@@ -7,8 +7,6 @@ import FlashOnIcon from '@material-ui/icons/FlashOn';
 import GradeIcon from '@material-ui/icons/Grade';
 import style from './Settings.module.css';
 
-import { auth, firestore } from '../../utilities/firebase';
-import useLocalStorage from '../../utilities/useLSHook';
 import Config from '../../utilities/config';
 import ActionHeader from '../Header/ActionHeader';
 
@@ -68,9 +66,8 @@ const IOSSlider = withStyles({
 
 const AccountSettings = () => {
   const history = useHistory();
-  const [user] = useLocalStorage('C_TIND_USER', null);
 
-  const settings = user.settings ? user.settings : Config.default_settings;
+  const settings = Config.default_settings;
   const [maxDistance, setMaxDistance] = useState(settings.maxDistance);
   const [ageRange, setAgeRange] = useState(settings.ageRange);
   const [global, setGlobal] = useState(settings.global);
@@ -87,11 +84,7 @@ const AccountSettings = () => {
   };
 
   function signOut() {
-    const confirm = window.confirm('Are you sure?');
-    if (confirm) {
-      localStorage.removeItem('C_TIND_USER');
-      auth.signOut();
-    }
+    history.push('/');
   }
 
   function onProfileSave() {
@@ -103,17 +96,9 @@ const AccountSettings = () => {
     };
     if (JSON.stringify(newSettings) !== JSON.stringify(settings)) {
       setSavingData(true);
-      const usersRef = firestore.doc(`users/${user.uid}`);
-      usersRef.get().then(async (doc) => {
-        let data = doc.data();
-        localStorage.setItem(
-          'C_TIND_USER',
-          JSON.stringify({ ...data, settings: newSettings })
-        );
-        await usersRef.set({ settings: newSettings }, { merge: true });
-        setSavingData(false);
-        history.goBack();
-      });
+      localStorage.setItem('C_TIND_SETTINGS', JSON.stringify(newSettings));
+      setSavingData(false);
+      history.goBack();
     } else {
       history.goBack();
     }
@@ -170,15 +155,15 @@ const AccountSettings = () => {
         <div className={style.item_label}>Account Settings</div>
         <div className={style.list_item}>
           <div>Your Name</div>
-          <div className={style.item_value}>{user.displayName}</div>
+          <div className={style.item_value}>Doesn't Matter</div>
         </div>
         <div className={style.list_item}>
           <div>Email</div>
-          <div className={style.item_value}>{user.email}</div>
+          <div className={style.item_value}>email@address.com</div>
         </div>
         <div className={style.list_item}>
           <div>Phone</div>
-          <div>N/A</div>
+          <div>8931******</div>
         </div>
         <div className={style.help_text}>
           No mobile or email verification needed.

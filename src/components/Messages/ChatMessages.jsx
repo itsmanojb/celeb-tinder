@@ -1,14 +1,21 @@
 import React from 'react';
 import style from './Messages.module.css';
+import avatar from './user.png';
 
 const ChatMessages = () => {
   const messages = [
+    {
+      id: 0,
+      name: 'You',
+      date: 'Today',
+      body: 'Hello there!',
+      myMsg: true,
+    },
     {
       id: 1,
       name: 'Manoj',
       date: 'Today',
       body: 'Welcome! Celebrity Tinder is a PWA built with React and Firebase.',
-      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
       myMsg: false,
     },
     {
@@ -17,7 +24,6 @@ const ChatMessages = () => {
       date: 'Today',
       body:
         'This is a non-functional clone of Tinder. Celebrtiy Tinder, unlike actual, lets you pick celebrities as your profile alias. And you swipe like you are a celebrity. \n\nPS: Match-making is not implemented. Although you can learn more about the celebrities and their work.',
-      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
       myMsg: false,
     },
     {
@@ -25,7 +31,6 @@ const ChatMessages = () => {
       name: 'Manoj',
       date: 'Today',
       body: 'Keep swiping!',
-      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
       myMsg: false,
     },
     {
@@ -33,7 +38,6 @@ const ChatMessages = () => {
       name: 'Manoj',
       date: 'Today',
       body: '👍🏻',
-      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
       myMsg: false,
     },
   ];
@@ -46,7 +50,7 @@ const ChatMessages = () => {
         >
           {!msg.myMsg && (
             <div className={style.chat_avatar}>
-              <img src={msg.img} alt="" />
+              <img src={avatar} alt="" />
             </div>
           )}
           <div className={style.bubble}>{msg.body}</div>

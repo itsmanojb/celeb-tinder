@@ -1,13 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import DataService from '../../utilities/dataService';
-import { firestore } from '../../utilities/firebase';
-import useLocalStorage from '../../utilities/useLSHook';
 import style from './Profile.module.css';
 
-const CelebItem = ({ data, na }) => {
+const CelebItem = ({ data }) => {
   const history = useHistory();
-  const [user] = useLocalStorage('C_TIND_USER', null);
 
   async function setAlias() {
     if (isTaken(data.id)) return;
@@ -16,9 +13,6 @@ const CelebItem = ({ data, na }) => {
       photo: DataService.getCelebPhotoUrl(data.profile_path),
       id: data.id,
     };
-
-    const usersRef = firestore.doc(`users/${user.uid}`);
-    await usersRef.set({ alias: c, alias_id: data.id }, { merge: true });
     localStorage.setItem('C_TIND_ALIAS', JSON.stringify(c));
     history.goBack();
   }
@@ -29,7 +23,7 @@ const CelebItem = ({ data, na }) => {
   };
 
   function isTaken(id) {
-    return na.indexOf(id) > -1;
+    return false;
   }
 
   return (
@@ -51,7 +45,7 @@ const CelebItem = ({ data, na }) => {
   );
 };
 
-const CelebList = ({ results, total, takenIds }) => {
+const CelebList = ({ results, total }) => {
   return (
     <div className={style.celeb_list}>
       {results.length !== total && (
@@ -60,7 +54,7 @@ const CelebList = ({ results, total, takenIds }) => {
         </span>
       )}
       {results.map((celeb) => (
-        <CelebItem key={celeb.id} data={celeb} na={takenIds} />
+        <CelebItem key={celeb.id} data={celeb} />
       ))}
     </div>
   );

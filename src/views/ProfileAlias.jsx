@@ -3,13 +3,11 @@ import { useHistory } from 'react-router-dom';
 import BlankHeader from '../components/Header/BlankHeader';
 import CelebList from '../components/Profile/CelebList';
 import SearchCeleb from '../components/Profile/SearchCeleb';
-import { firestore } from '../utilities/firebase';
 import DataService from '../utilities/dataService';
 
 const ProfileAlias = () => {
   const history = useHistory();
 
-  const [alreadyTaken, setAlreadyTaken] = useState([]);
   const [searching, setSearching] = useState(false);
   const [searched, setSearched] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
@@ -20,17 +18,6 @@ const ProfileAlias = () => {
     const prof = localStorage.getItem('C_TIND_ALIAS');
     if (prof) {
       history.push('/profile');
-    } else {
-      firestore
-        .collection('users')
-        .get()
-        .then((querySnapshot) => {
-          const data = querySnapshot.docs.map((doc) => doc.data());
-          const celebIds = data
-            .filter((user) => user.alias_id)
-            .map((u) => u.alias_id);
-          setAlreadyTaken(celebIds);
-        });
     }
   }, []); // eslint-disable-line
 
@@ -64,11 +51,7 @@ const ProfileAlias = () => {
       {searching ? (
         <div className="info-text">Searching..</div>
       ) : searchResults.length > 0 ? (
-        <CelebList
-          total={total}
-          results={searchResults}
-          takenIds={alreadyTaken}
-        />
+        <CelebList total={total} results={searchResults} />
       ) : searched ? (
         <div className="info-text">No results</div>
       ) : (
