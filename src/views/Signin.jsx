@@ -1,5 +1,5 @@
 import React from 'react';
-import WhatshotRoundedIcon from '@material-ui/icons/WhatshotRounded';
+import logo from './white-logo.png';
 import { NavLink } from 'react-router-dom';
 
 const Signin = () => {
@@ -7,7 +7,9 @@ const Signin = () => {
     <div className="Login">
       <div className="top">
         <div className="logo">
-          <WhatshotRoundedIcon />
+          <span className="flame">
+            <img src={logo} alt="logo" />
+          </span>
           <span>tinder</span>
         </div>
         <p>Swipe like Celebrities</p>
