@@ -35,8 +35,8 @@ const TinderCards = ({ showMoreDetails }) => {
         }
         if (filteredCelebs.length) {
           setPeople(filteredCelebs);
-          console.log(filteredCelebs, current);
-          setCurrent(filteredCelebs.length - 1);
+          const curr = filteredCelebs.length - 1;
+          setCurrent(curr);
         } else {
           setPeople([]);
         }
@@ -83,7 +83,9 @@ const TinderCards = ({ showMoreDetails }) => {
     // }
     if (index > 0) {
       console.log('removing ', nameToDelete);
-      setCurrent(current - 1);
+      people.pop();
+      setPeople(people);
+      setCurrent(people.length - 1);
     } else {
       setLoading(true);
       loadMore(page + 1);
