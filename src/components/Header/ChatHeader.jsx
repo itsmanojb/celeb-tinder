@@ -13,7 +13,7 @@ const ChatHeader = () => {
           <ArrowBackIosIcon />
         </IconButton>
       </NavLink>
-      <span>Name</span>
+      <span>Manoj</span>
       <IconButton aria-label="delete">
         <DeleteIcon />
       </IconButton>

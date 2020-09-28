@@ -28,10 +28,10 @@
 /* .msg_thread:first-child {
   border-top: 0;
 } */
-
+/* 
 .msg_thread:hover {
   background-color: #fafafa;
-}
+} */
 
 .avatar {
   height: 56px;
@@ -140,8 +140,8 @@
 }
 
 .avatar {
-  height: 64px;
-  width: 64px;
+  height: 56px;
+  width: 56px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 5px 0 0;
@@ -160,7 +160,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin: 0 5px 0 0;
-  background-image: var(--theme-gradient);
+  background: #eee;
 }
 
 .chat_avatar img {

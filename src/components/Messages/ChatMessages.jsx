@@ -4,83 +4,37 @@ import style from './Messages.module.css';
 const ChatMessages = () => {
   const messages = [
     {
-      postId: 1,
       id: 1,
-      myMsg: true,
-      name: 'id labore ex et quam laborum',
-      email: 'Eliseo@gardner.biz',
-      body:
-        'laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium',
+      name: 'Manoj',
+      date: 'Today',
+      body: 'Welcome! Celebrity Tinder is a PWA built with React and Firebase.',
+      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
+      myMsg: false,
     },
     {
-      postId: 1,
       id: 2,
-      myMsg: true,
-      name: 'quo vero reiciendis velit similique earum',
-      email: 'Jayne_Kuhic@sydney.com',
+      name: 'Manoj',
+      date: 'Today',
       body:
-        'est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et',
+        'This is a non-functional clone of Tinder. Celebrtiy Tinder, unlike actual, lets you pick celebrities as your profile alias. And you swipe like you are a celebrity. \n\nPS: Match-making is not implemented. Although you can learn more about the celebrities and their work.',
+      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
+      myMsg: false,
     },
     {
-      postId: 1,
       id: 3,
+      name: 'Manoj',
+      date: 'Today',
+      body: 'Keep swiping!',
+      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
       myMsg: false,
-      name: 'odio adipisci rerum aut animi',
-      email: 'Nikita@garfield.biz',
-      body:
-        'quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione',
     },
     {
-      postId: 1,
       id: 4,
+      name: 'Manoj',
+      date: 'Today',
+      body: '👍🏻',
+      img: 'https://manojbarman.in/static/media/me.6f8ef0ca.jpg',
       myMsg: false,
-      name: 'alias odio sit',
-      email: 'Lew@alysha.tv',
-      body:
-        'non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati',
-    },
-    {
-      postId: 1,
-      id: 5,
-      myMsg: true,
-      name: 'vero eaque aliquid doloribus et culpa',
-      email: 'Hayden@althea.biz',
-      body:
-        'harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et',
-    },
-    {
-      postId: 1,
-      id: 6,
-      myMsg: false,
-      name: 'alias odio sit',
-      email: 'Lew@alysha.tv',
-      body: 'non et atque\noti',
-    },
-    {
-      postId: 1,
-      id: 7,
-      myMsg: true,
-      name: 'vero eaque aliquid doloribus et culpa',
-      email: 'Hayden@althea.biz',
-      body:
-        'harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et',
-    },
-    {
-      postId: 1,
-      id: 8,
-      myMsg: false,
-      name: 'alias odio sit',
-      email: 'Lew@alysha.tv',
-      body: 'non et atque\noccaecati ',
-    },
-    {
-      postId: 1,
-      id: 9,
-      myMsg: true,
-      name: 'vero eaque aliquid doloribus et culpa',
-      email: 'Hayden@althea.biz',
-      body:
-        'harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et',
     },
   ];
   return (
@@ -92,7 +46,7 @@ const ChatMessages = () => {
         >
           {!msg.myMsg && (
             <div className={style.chat_avatar}>
-              <img src="http://placegoat.com/300" alt="" />
+              <img src={msg.img} alt="" />
             </div>
           )}
           <div className={style.bubble}>{msg.body}</div>
