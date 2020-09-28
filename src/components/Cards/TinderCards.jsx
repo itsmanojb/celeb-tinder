@@ -1,16 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import TinderCard from 'react-tinder-card';
+import InfoIcon from '@material-ui/icons/Info';
 import Config from '../../utilities/config';
 import DataService from '../../utilities/dataService';
 import style from './Card.module.css';
 import './loader.css';
+import FullCard from './FullCard';
 
-const TinderCards = () => {
+const TinderCards = ({ showMoreDetails }) => {
   const [people, setPeople] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
+
+  const [current, setCurrent] = useState(0);
 
   const me = JSON.parse(localStorage.getItem('C_TIND_ALIAS')).id;
   const genderCoice = localStorage.getItem('C_TIND_SETTINGS')
@@ -30,6 +35,8 @@ const TinderCards = () => {
         }
         if (filteredCelebs.length) {
           setPeople(filteredCelebs);
+          console.log(filteredCelebs, current);
+          setCurrent(filteredCelebs.length - 1);
         } else {
           setPeople([]);
         }
@@ -69,9 +76,14 @@ const TinderCards = () => {
       });
   }
 
-  const swiped = (direction, nameToDelete, index) => {
+  const swiped = (direction, nameToDelete, index, id) => {
+    // if (direction === 'up') {
+    //   showDetails(id);
+    //   return;
+    // }
     if (index > 0) {
       console.log('removing ', nameToDelete);
+      setCurrent(current - 1);
     } else {
       setLoading(true);
       loadMore(page + 1);
@@ -80,9 +92,9 @@ const TinderCards = () => {
     // setLastDirection(direction);
   };
 
-  const outOffFrame = (name) => {
-    console.log(name + ' left');
-  };
+  // const outOffFrame = (name) => {
+  //   console.log(name + ' left');
+  // };
 
   const getMovieNames = (items) => {
     return items
@@ -91,7 +103,19 @@ const TinderCards = () => {
       .join(', ');
   };
 
-  return (
+  function showDetails() {
+    setShowPreview(true);
+    showMoreDetails(true);
+  }
+
+  function hideDetails() {
+    setShowPreview(false);
+    showMoreDetails(false);
+  }
+
+  return showPreview ? (
+    <FullCard id={people[current].id} closeCard={hideDetails} />
+  ) : (
     <div className={style.cards__container}>
       {loading ? (
         <div className="loadMore">
@@ -101,27 +125,40 @@ const TinderCards = () => {
         </div>
       ) : people.length > 0 ? (
         people.map((person, i) => (
-          <TinderCard
-            className={style.swipe}
-            key={i}
-            preventSwipe={['up', 'down']}
-            onSwipe={(dir) => swiped(dir, person.name, i)}
-            onCardLeftScreen={() => outOffFrame(person.name)}
-          >
-            <div
-              className={style.card}
-              style={{
-                backgroundImage: `url(${DataService.getCelebPofilesUrl(
-                  person.profile_path
-                )})`,
-              }}
+          <Fragment key={i}>
+            <TinderCard
+              className={style.swipe}
+              preventSwipe={['up', 'down']}
+              onSwipe={(dir) => swiped(dir, person.name, i, person.id)}
+              // onCardLeftScreen={() => outOffFrame(person.name)}
             >
-              <div className={style.card__content}>
-                <p>{getMovieNames(person.known_for)}</p>
-                <h3>{person.name}</h3>
+              <div
+                className={style.card}
+                style={{
+                  backgroundImage: `url(${DataService.getCelebPofilesUrl(
+                    person.profile_path
+                  )})`,
+                }}
+              >
+                <div className={style.card__content}>
+                  <div className={style.card__content_text}>
+                    <h3>{person.name}</h3>
+                    <p>{getMovieNames(person.known_for)}</p>
+                  </div>
+                  <div
+                    className={style.card__content_icon}
+                    onClick={(e) => showDetails(person.id)}
+                  >
+                    <InfoIcon />
+                  </div>
+                </div>
               </div>
-            </div>
-          </TinderCard>
+            </TinderCard>
+            <div
+              className={style.click_area}
+              onClick={(e) => showDetails()}
+            ></div>
+          </Fragment>
         ))
       ) : (
         <div className="info-text">That's All!</div>

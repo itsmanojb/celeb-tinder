@@ -145,10 +145,11 @@
 }
 
 .searchbox {
-  padding: 10px 20px;
+  padding: 6px 20px;
   border-bottom: 1px solid #eee;
   background-color: #fafafa;
-  height: 43px;
+  height: 51px;
+  display: flex;
 }
 
 .searchbox input {
@@ -163,6 +164,7 @@
   box-shadow: none;
   -webkit-appearance: none;
   line-height: 1;
+  margin: 0;
 }
 
 .searchbox input:focus {
@@ -198,9 +200,9 @@
   opacity: 0.5;
 }
 
-.celeb_item:hover {
+/* .celeb_item:hover {
   background-color: #fafafa;
-}
+} */
 
 .celeb_dp {
   height: 56px;

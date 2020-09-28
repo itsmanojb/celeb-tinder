@@ -7,13 +7,15 @@ import GradeIcon from '@material-ui/icons/Grade';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import './Swipe-buttons.css';
 
-const SwipeButtons = () => {
+const SwipeButtons = ({ alt }) => {
   return (
     <div className="swipeButtons">
-      <div className="container">
-        <IconButton className="btn btn__undo">
-          <ReplayIcon />
-        </IconButton>
+      <div className={alt ? `container alt` : `container`}>
+        {!alt && (
+          <IconButton className="btn btn__undo">
+            <ReplayIcon />
+          </IconButton>
+        )}
         <IconButton className="btn btn__no">
           <CloseIcon />
         </IconButton>
@@ -23,9 +25,11 @@ const SwipeButtons = () => {
         <IconButton className="btn btn__yes">
           <FavoriteIcon />
         </IconButton>
-        <IconButton className="btn btn__boost">
-          <FlashOnIcon />
-        </IconButton>
+        {!alt && (
+          <IconButton className="btn btn__boost">
+            <FlashOnIcon />
+          </IconButton>
+        )}
       </div>
     </div>
   );

@@ -38,7 +38,8 @@
   width: 56px;
   border-radius: 50%;
   overflow: hidden;
-  background-image: var(--theme-gradient);
+  background-color: #eee;
+  /* background-image: var(--theme-gradient); */
 }
 
 .avatar img {

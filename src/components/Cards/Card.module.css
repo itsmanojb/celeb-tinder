@@ -6,13 +6,18 @@
 .card {
   position: relative;
   background-color: #fff;
-  width: 320px;
-  height: 400px;
+  /* max-width: 350px;
+  max-height: 450px;
+  width: calc(100% - 10px);
+  height: calc(100vh - (56px + 84px)); */
+  width: 350px;
+  height: 450px;
   /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); */
-  border-radius: 24px;
+  border-radius: 12px;
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .cards__container {
@@ -36,6 +41,22 @@
   flex-direction: column-reverse;
 }
 
+.card__content_text {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 40px);
+}
+
+.card__content_icon {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  right: 0;
+  color: #eee;
+  cursor: pointer;
+  /* z-index: 1; */
+}
+
 .card__content h3 {
   color: #fff;
   margin: 0;
@@ -48,4 +69,105 @@
   margin: 10px 0 0;
   font-weight: 400;
   font-size: 12px;
+  line-height: 1.4;
+}
+
+.full_card_wrapper {
+  overflow-y: auto;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+
+.full_card {
+  display: flex;
+  flex-direction: column;
+}
+
+.full_image {
+  background-color: #333;
+  height: 450px;
+}
+
+.full_image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.close_btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-image: var(--theme-gradient);
+  text-align: center;
+  margin-top: -35px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.close_btn span {
+  color: #fff;
+}
+
+.full_card_details {
+  flex: 1;
+  padding: 10px 20px 40px;
+}
+
+.full_card_details h4 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.full_card_details h4 span {
+  font-size: 16px;
+  color: #888;
+  font-weight: 300;
+}
+
+.full_card_details ul {
+  list-style-type: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.full_card_details ul li {
+  font-size: 13px;
+  margin: 8px 0;
+  color: #888;
+}
+
+.full_card_details p {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #666;
+  font-weight: 400;
+  margin: 20px 0;
+  white-space: pre-line;
+}
+
+.report {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  text-transform: uppercase;
+  border: 1px solid #eee;
+  border-width: 1px 0;
+  line-height: 1;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.click_area {
+  height: 20vh;
+  background: transparent;
+  width: 100%;
+  position: absolute;
+  bottom: 84px;
+  cursor: pointer;
 }
