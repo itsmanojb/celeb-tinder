@@ -1,14 +1,15 @@
 {
   "name": "celeb-tinder",
   "version": "0.1.0",
+  "description": "Tinder clone application built with React.",
   "private": true,
   "author": {
     "name": "Manoj Barman",
     "url": "https://manojbarman.in"
   },
   "keywords": [
-    "Clone",
     "Tinder",
+    "Clone",
     "React"
   ],
   "dependencies": {
