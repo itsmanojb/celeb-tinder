@@ -7,7 +7,7 @@ Celebrity data source [TMDb](https://www.themoviedb.org/). Check out the site [h
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ee5319d8-72ac-4c24-a129-c63fd90e44e8/deploy-status)](https://app.netlify.com/sites/celebritytinder/deploys)
 
-![Poster](/poster.png?raw=true)
+![Poster](/poster-new.png?raw=true)
 
 ## Development
 
