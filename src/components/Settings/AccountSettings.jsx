@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-import Slider from '@material-ui/core/Slider';
-import { withStyles } from '@material-ui/core/styles';
-import FlashOnIcon from '@material-ui/icons/FlashOn';
-import GradeIcon from '@material-ui/icons/Grade';
-import style from './Settings.module.css';
+import Slider from "@material-ui/core/Slider";
+import { withStyles } from "@material-ui/core/styles";
+import FlashOnIcon from "@material-ui/icons/FlashOn";
+import GradeIcon from "@material-ui/icons/Grade";
+import style from "./Settings.module.css";
 
-import Config from '../../utilities/config';
-import ActionHeader from '../Header/ActionHeader';
+import Config from "../../utilities/config";
+import ActionHeader from "../Header/ActionHeader";
 
 const iOSBoxShadow =
-  '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
+  "0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)";
 
 const IOSSlider = withStyles({
   root: {
-    color: '#ff655b',
+    color: "#ff655b",
     height: 2,
-    padding: '15px 0',
+    padding: "15px 0",
   },
   thumb: {
     height: 28,
     width: 28,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     boxShadow: iOSBoxShadow,
     marginTop: -14,
     marginLeft: -14,
-    '&:focus, &:hover, &$active': {
+    "&:focus, &:hover, &$active": {
       boxShadow:
-        '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.3),0 0 0 1px rgba(0,0,0,0.02)',
+        "0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.3),0 0 0 1px rgba(0,0,0,0.02)",
       // Reset on touch devices, it doesn't add specificity
-      '@media (hover: none)': {
+      "@media (hover: none)": {
         boxShadow: iOSBoxShadow,
       },
     },
@@ -50,17 +50,17 @@ const IOSSlider = withStyles({
   rail: {
     height: 2,
     opacity: 0.5,
-    backgroundColor: '#bfbfbf',
+    backgroundColor: "#bfbfbf",
   },
   mark: {
-    backgroundColor: '#bfbfbf',
+    backgroundColor: "#bfbfbf",
     height: 8,
     width: 1,
     marginTop: -3,
   },
   markActive: {
     opacity: 1,
-    backgroundColor: 'currentColor',
+    backgroundColor: "currentColor",
   },
 })(Slider);
 
@@ -84,7 +84,7 @@ const AccountSettings = () => {
   };
 
   function signOut() {
-    history.push('/');
+    history.push("/");
   }
 
   function onProfileSave() {
@@ -96,7 +96,7 @@ const AccountSettings = () => {
     };
     if (JSON.stringify(newSettings) !== JSON.stringify(settings)) {
       setSavingData(true);
-      localStorage.setItem('C_TIND_SETTINGS', JSON.stringify(newSettings));
+      localStorage.setItem("C_TIND_SETTINGS", JSON.stringify(newSettings));
       setSavingData(false);
       history.goBack();
     } else {
@@ -107,48 +107,48 @@ const AccountSettings = () => {
   return (
     <>
       <ActionHeader title="Settings" onDone={onProfileSave} />
-      <div className={`${style.edit_page} ${savingData ? style.inactive : ''}`}>
+      <div className={`${style.edit_page} ${savingData ? style.inactive : ""}`}>
         <div className={style.promo_card}>
           <span>
-            tinder <strong style={{ color: 'gold' }}>Gold</strong>{' '}
+            tinder <strong style={{ color: "gold" }}>Gold</strong>{" "}
           </span>
-          <small>Unlock most exclusive features</small>{' '}
+          <small>Unlock most exclusive features</small>{" "}
         </div>
         <div className={style.promo_card}>
           <span>
-            tinder{' '}
+            tinder{" "}
             <strong
               style={{
-                color: 'red',
-                fontSize: '40px',
-                position: 'absolute',
-                top: '-16px',
-                left: '50%',
-                marginLeft: '25px',
+                color: "red",
+                fontSize: "40px",
+                position: "absolute",
+                top: "-16px",
+                left: "50%",
+                marginLeft: "25px",
               }}
             >
-              +{' '}
-            </strong>{' '}
+              +{" "}
+            </strong>{" "}
           </span>
-          <small>Unlimited Likes and more!</small>{' '}
+          <small>Unlimited Likes and more!</small>{" "}
         </div>
         <div className={style.card_row}>
           <div className={style.stats}>
             <div className={style.stats_icon}>
-              <FlashOnIcon style={{ color: 'purple' }} />
+              <FlashOnIcon style={{ color: "purple" }} />
             </div>
             <div className={style.stats_text}>
               <span>0 remaining</span>
-              <span style={{ color: 'purple' }}>No boosts available</span>
+              <span style={{ color: "purple" }}>No boosts available</span>
             </div>
           </div>
           <div className={style.stats}>
             <div className={style.stats_icon}>
-              <GradeIcon style={{ color: '#00a1ff' }} />
+              <GradeIcon style={{ color: "#00a1ff" }} />
             </div>
             <div className={style.stats_text}>
               <span>0 remaining</span>
-              <span style={{ color: '#00a1ff' }}>No super likes available</span>
+              <span style={{ color: "#00a1ff" }}>No super likes available</span>
             </div>
           </div>
         </div>
@@ -218,7 +218,7 @@ const AccountSettings = () => {
         </div>
         <div className={style.list_item_with_slider}>
           <div>Age range</div>
-          <div className={style.item_value}>{ageRange.join(' - ')}</div>
+          <div className={style.item_value}>{ageRange.join(" - ")}</div>
           <div>
             <IOSSlider
               value={ageRange}
@@ -274,10 +274,7 @@ const AccountSettings = () => {
           <div>Log Out</div>
         </div>
         <div className={style.app_info}>
-          <img
-            src="https://1000logos.net/wp-content/uploads/2018/07/tinder-logo.png"
-            alt="Logo"
-          />
+          <img src="/logo192.png" alt="Logo" />
           <span>Version 1.0</span>
         </div>
         <div className={style.list_item_imp}>
